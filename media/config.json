@@ -1,0 +1,43 @@
+{ "info" : {
+    "title" : "Breaking Bad",
+    "image" : "http://media4.takealot.com/takealot/covers/4250931/cover-zoom.jpg?1328250041",
+    "synopsis" : [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent justo nunc, bibendum a enim nec, luctus imperdiet turpis. Duis efficitur lorem quis volutpat pellentesque. Pellentesque suscipit mollis metus, sed viverra enim sodales non. Maecenas eget nisi eros. Etiam ultrices pellentesque justo, sit amet lobortis lectus euismod vel. Sed vitae eros dapibus, cursus magna et, ultricies nisl. Cras sed consequat massa. Vestibulum euismod nunc sit amet tellus iaculis convallis. Nullam in euismod sapien. Etiam fringilla lacinia orci, at posuere nulla euismod ac. Nam in nisi ligula. Aliquam ac interdum purus. Aenean dolor ligula, hendrerit vel fermentum vitae, convallis a leo. Nunc eu euismod turpis. Praesent scelerisque ac lacus a posuere.",
+      "Phasellus posuere leo at rutrum consectetur. Maecenas vel neque ut neque dignissim ultricies. Quisque quis malesuada mi, et sodales ex. Pellentesque volutpat turpis ut commodo aliquam. Cras in est ut quam hendrerit sagittis molestie quis velit. Aliquam vehicula eros vitae risus porta, nec hendrerit ligula faucibus. Nunc ornare quam a feugiat ultricies. Maecenas blandit eros varius ex blandit, ut elementum quam pretium."
+    ],
+    "describ" : [
+      {
+        "title" : "Catégorie",
+        "content" : "Horreur"
+      },
+      {
+        "title" : "Codec Vidéo",
+        "content" : "x264"
+      }
+    ]
+  },
+  "season" : {
+    "1" : {
+      "01": {
+        "describ": "Si vous arrêtez et réfléchissez, votre vie est beaucoup plus longue en tant que vieil homme qu'en tant qu'enfant !",
+        "time": "25:10"
+      },
+      "02": {
+        "describ": "Attention au tapis roulant !",
+        "time": "25:20"
+      },
+      "03": {
+        "describ": "Sois au moins un homme, Kajiki ! / Soyez prudent, si vous dormez avec le ventilateur, vous aurez des maux de ventre.",
+        "time": "25:13"
+      },
+      "04": {
+        "describ": "Tu ne peux pas savoir si un film est drôle en regardant juste le titre.",
+        "time": "25:00"
+      },
+      "05": {
+        "describ": "Les garçons ont une étrange croyance qui leur fait penser qu'ils deviennent des hommes en touchant une grenouille / Vous devez seulement vous laver les aisselles... Juste les aisselles.",
+        "time": "25:23"
+      }
+    }
+  }
+}
