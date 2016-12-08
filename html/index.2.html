@@ -70,58 +70,9 @@
                 </div><!-- END : INFO -->
                 <a id="season"></a>
                 <!-- START : SEASONS -->
-                <div class="mdl-tabs mdl-js-tabs" ng-controller="jsonSeasonCtrl">
-                    <!-- START : SEASONS TAB HEADER -->
-                    <div class="mdl-tabs__tab-bar">
-                        <a href="#tab1-panel" class="mdl-tabs__tab is-active">Season 1</a>
-                        <a href="#tab2-panel" class="mdl-tabs__tab">Season 2</a>
-                    </div><!-- END : SEASONS TAB HEADER -->
-                    <!-- START : SEASON CONTENT - For Tablet and Smartphone -->
-                    <div class="mdl-tabs__panel is-active" id="tab1-panel">
+                <div ng-controller="jsonSeasonCtrl">
+                    <span ng-bind-html="tabHeader"></span>
 
-                        <!-- START : GRID EPISODE -->
-                        <div class="mdl-grid">
-                            <!-- START : EPISODE BOX -->
-                            <div class="serie_describ_box mdl-cell mdl-cell--12-col" ng-repeat="(key, values) in myData">
-                                <span ng-repeat="(key,value) in values">
-                                    <button class="mdl-button mdl-js-button">{{key}}|{{value.name}}|{{value.time}}</button>
-                                </span>
-                            </div><!-- FIN : Définition d'une case -->
-                        </div><!-- FIN : Définition de la grille des cases -->
-
-                    </div>
-                    <!-- END : SEASON CONTENT - For Tablet and Smartphone -->
-                    <!-- START : SEASON CONTENT - For Desktop -->
-                    <div class="mdl-tabs__panel" id="tab2-panel">
-                    
-                        <!-- START : GRID EPISODE -->
-                        <div class="mdl-grid">
-                            <!-- START : EPISODE BOX -->
-                            <div class="serie_describ_box mdl-cell mdl-cell--1-offset-desktop mdl-cell--10-col-desktop">
-                                <!-- START : HEADER -->
-                                <button class="mdl-button mdl-js-button mdl-cell mdl-cell--12-col" style="color: black;" disabled>
-                                    <div class="mdl-grid" style="padding: 0;">
-                                        <p class="mdl-cell mdl-cell--2-col">numero</p>
-                                        <p class="mdl-cell mdl-cell--8-col describ_ep">name</p>
-                                        <p class="mdl-cell mdl-cell--2-col">time</p>
-                                    </div>
-                                </button><!-- END : HEADER -->
-                                <!-- START : EPISODE INFO -->
-                                <span ng-repeat="(key, values) in myData">
-                                    <span ng-repeat="(key,value) in values">
-                                        <button class="mdl-button mdl-js-button mdl-cell mdl-cell--12-col">
-                                            <div class="mdl-grid" style="padding: 0;">
-                                                <p class="mdl-cell mdl-cell--2-col">{{key}}</p>
-                                                <p class="mdl-cell mdl-cell--8-col">{{value.name}}</p>
-                                                <p class="mdl-cell mdl-cell--2-col">{{value.time}}</p>
-                                            </div>
-                                        </button>
-                                    </span>
-                                </span>
-
-                            </div><!-- END : EPISODE BOX -->
-                        </div><!-- END : GRID EPISODE -->
-                    </div><!-- END : SEASON CONTENT - For Desktop -->
                 </div><!-- END : SEASONS -->
                 <a id="ost"></a>
                 <!-- START OST -->
@@ -164,11 +115,12 @@
 
     <!-- Script -->
     <!-- AngularJS -->
-    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
     <!-- Material Design Lite -->
-    <script src="../node_modules/material-design-lite/material.js"></script>
+    <script src="../node_modules/material-design-lite/material.min.js"></script>
     <!-- MyScript -->
-    <script src="../my_modules/script.js"></script>
+    <script src="../my_modules/script.2.js"></script>
 </body>
 
 </html>

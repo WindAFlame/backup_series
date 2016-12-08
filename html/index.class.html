@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Test Material Design Lite</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../my_modules/info.css">
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="../node_modules/material-design-lite/material.css">
+</head>
+<body ng-app="myApp">
+
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title" ng-controller="jsonInfoCtrl">{{myData.title}}</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="#info">Serie</a>
+                <a class="mdl-navigation__link" href="#season">Episode</a>
+                <a class="mdl-navigation__link" href="#ost">O.S.T.</a>
+            </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title" ng-controller="jsonInfoCtrl">{{myData.title}}</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="#info">Serie</a>
+                <a class="mdl-navigation__link" href="#season">Episode</a>
+                <a class="mdl-navigation__link" href="#ost">O.S.T.</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="page-content">
+                <!-- START CONTENT-->
+
+                <a id="info"></a>
+                <!-- START : INFO -->
+                <div class="serie mdl-grid mdl-grid mdl-cell mdl-cell--1-offset-desktop mdl-cell--10-col-desktop" ng-controller="jsonInfoCtrl">
+                    <!-- START : 1/IMAGE -->
+                    <div class="serie_img mdl-cell mdl-cell--3-col">
+                        <img class="mdl-cell mdl-cell--12-col" src={{myData.image}} alt="cover"/>
+                    </div><!-- END : 1/IMAGE -->
+                    <!-- START : 2/DESCRIB -->
+                    <div class="serie_describ mdl-cell mdl-cell--9-col">
+                        <!-- START : GRID INFO -->
+                        <div class="mdl-grid">
+
+                            <!-- START : INFO BOX -->
+                            <div class="serie_describ_box mdl-cell mdl-cell--3-col" ng-repeat="data in myData.describ">
+                                <div class="mdl-grid">
+                                    <div class="serie_describ_inbox_top mdl-cell--12-col">{{data.title}}</div>
+                                    <div class="serie_describ_inbox_bottom mdl-cell--12-col">{{data.content}}</div>
+                                </div>
+                            </div><!-- END : INFO BOX -->
+
+                            <!-- START : SUMMARY -->
+                            <div class="serie_summary mdl-cell  mdl-cell--12-col" ng-repeat="data in myData.summary">
+                                {{data}}
+                            </div><!-- END : SUMMARY -->
+                        </div><!-- END : GRID INFO -->
+                    </div><!-- END : 2/DESCRIB -->
+                    
+                </div><!-- END : INFO -->
+                <a id="season"></a>
+                <!-- START : SEASONS -->
+                <div class="mdl-tabs mdl-js-tabs" ng-controller="jsonSeasonCtrl">
+                    <!-- START : SEASONS TAB HEADER -->
+                    <div class="mdl-tabs__tab-bar">
+                        <span ng-repeat="season in listSeason">
+                        <a href={{season.hid}} class="mdl-tabs__tab">Season {{season.number}}</a>
+
+                        </span>
+                    </div><!-- END : SEASONS TAB HEADER -->
+                    <!-- START : SEASON CONTENT - For Tablet and Smartphone -->
+                    <!--<div class="mdl-tabs__panel is-active" id="tab1-panel">-->
+
+                        <!--&lt;!&ndash; START : GRID EPISODE &ndash;&gt;-->
+                        <!--<div class="mdl-grid">-->
+                            <!--&lt;!&ndash; START : EPISODE BOX &ndash;&gt;-->
+                            <!--<div class="serie_describ_box mdl-cell mdl-cell&#45;&#45;12-col" ng-repeat="(key, values) in myData">-->
+                                <!--<span ng-repeat="(key,value) in values | orderBy:key">-->
+                                    <!--<button class="mdl-button mdl-js-button">{{key}}|{{value.name}}|{{value.time}}</button>-->
+                                <!--</span>-->
+                            <!--</div>&lt;!&ndash; FIN : Définition d'une case &ndash;&gt;-->
+                        <!--</div>&lt;!&ndash; FIN : Définition de la grille des cases &ndash;&gt;-->
+
+                    <!--</div>-->
+                    <!-- END : SEASON CONTENT - For Tablet and Smartphone -->
+                    <!-- START : SEASON CONTENT - For Desktop -->
+                    <span ng-repeat="season in listSeason">
+                        <div class="mdl-tabs__panel" id={{season.id}}>
+
+                            <!-- START : GRID EPISODE -->
+                            <div class="mdl-grid">
+                                <!-- START : EPISODE BOX -->
+                                <div class="serie_describ_box mdl-cell mdl-cell--1-offset-desktop mdl-cell--10-col-desktop">
+                                    <!-- START : HEADER -->
+                                    <button class="mdl-button mdl-js-button mdl-cell mdl-cell--12-col" style="color: black;" disabled>
+                                        <div class="mdl-grid" style="padding: 0;">
+                                            <p class="mdl-cell mdl-cell--2-col">numero</p>
+                                            <p class="mdl-cell mdl-cell--8-col describ_ep">name</p>
+                                            <p class="mdl-cell mdl-cell--2-col">time</p>
+                                        </div>
+                                    </button><!-- END : HEADER -->
+                                    <!-- START : EPISODE INFO -->
+                                    <span ng-repeat="(number, episode) in season.listEpisode track by $index">
+                                        <button href={{episode.link}} class="mdl-button mdl-js-button mdl-cell mdl-cell--12-col">
+                                            <div class="mdl-grid" style="padding: 0;">
+                                                <p class="mdl-cell mdl-cell--2-col">{{number}}</p>
+                                                <p class="mdl-cell mdl-cell--8-col">{{episode.name}}</p>
+                                                <p class="mdl-cell mdl-cell--2-col">{{episode.time}}</p>
+                                            </div>
+                                        </button>
+                                    </span>
+
+                                </div><!-- END : EPISODE BOX -->
+                            </div><!-- END : GRID EPISODE -->
+                        </div><!-- END : SEASON CONTENT - For Desktop -->
+                    </span>
+                </div><!-- END : SEASONS -->
+                <a id="ost"></a>
+                <!-- START OST -->
+                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                    <div class="mdl-tabs__tab-bar">
+                        <a href="#ost-panel" class="mdl-tabs__tab is-active">O.S.T.</a>
+                    </div>
+
+                    <div class="mdl-tabs__panel is-active" id="ost-panel">
+                        <!-- START : GRID OST -->
+                        <div class="mdl-grid">
+
+                            <!-- START : OST BOX -->
+                            <!-- Square card -->
+                            <style>
+                            .ost1-card-square.mdl-card {
+                            width: 320px;
+                            height: 320px;
+                            }
+                            .ost1-card-square > .mdl-card__title {
+                            color: #fff;
+                            background:
+                                url('http://stephboreldesign.com/wp-content/uploads/2012/03/lorem-ipsum-logo.jpg') bottom right 15% no-repeat #46B6AC;
+                            }
+                            </style>
+
+                            <a class="ost1-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col" href="#">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <h2 class="mdl-card__title-text">Apocalypshit (O.S.T. S1)</h2>
+                                </div>
+                            </a><!-- END : OST BOX -->
+
+                        </div><!-- END : GRID OST -->
+                    </div>
+                </div><!-- END OST -->
+
+            </div><!-- END CONTENT -->
+        </main>
+    </div>
+
+    <!-- Script -->
+    <!-- AngularJS -->
+    <script src="../node_modules/angular/angular.js"></script>
+    <!-- Material Design Lite -->
+    <script src="../node_modules/material-design-lite/material.js"></script>
+    <!-- MyScript -->
+    <script src="../my_modules/script.class.js"></script>
+    <script src="../my_modules/SeasonClass.js"></script>
+</body>
+
+</html>
