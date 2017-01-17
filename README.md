@@ -4,6 +4,7 @@
 
 * [AngularJS](http://angularjs.org/)
 * [MaterialDesignLite](https://getmdl.io/)
+* [Videogular](http://www.videogular.com/) === [videogular-v1.4.4,videogularThemesDefault-v1.4.4,videogularPoster-v1.4.4,videogularOverlayPlay-v1.4.4,videogularControls-v1.4.4,videogularBuffering-v1.4.4]
 
 ## What's about ?
 
@@ -12,5 +13,5 @@ This informations are store in json file and the website is dynamicaly created f
 
 ## How to Deployment ?
 
-This version is a test developpement with MDL and for it worked correctly, I need a web server.
-So the deployment is not the same as master branch.
+For deployement this project, you need a json file with your serie info.
+This is based on the json file from [omdbapi](http://www.omdbapi.com/).
