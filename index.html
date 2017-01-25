@@ -1,121 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr" >
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Series Player</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Material Design Lite style sheet -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
     <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
-    <!-- Stylesheet -->
-    <!-- Material Design Lite -->
-    <link rel="stylesheet" href="modules/materialDesignLite-v1.2.1/material.css">
-    <!-- Videogular -->
-    <link rel="stylesheet" href="modules/backupSeries/css/videogular.css">
-    <!-- Script -->
-    
-    <!-- AngularJS -->
-    <script src="modules/angularJS-v1.5.8/angular.js"></script>
-    <script src="modules/angularJS-v1.5.8/additional modules/angular-sanitize.js"></script>
-    <!-- Material Design Lite -->
-    <script src="modules/materialDesignLite-v1.2.1/material.js"></script>
+    <!-- My style sheet-->
+    <link rel="stylesheet" href="html/css/videogular.css">
 </head>
 <body ng-app="myApp">
 
     <!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Title -->
-      <span class="mdl-layout-title" ng-controller="infoCtrl">{{Title}}</span>
-      <!-- Add spacer, to align navigation to the middle -->
-      <div class="mdl-layout-spacer"></div>
-    </div>
-  </header>
-  <main class="mdl-layout__content">
-    <div class="page-content mdl-grid mdl-grid--no-spacing" ng-controller="playerCtrl as controller">
-        <!-- YOUR CONTENT : START -->
-
-        <!-- PlayerSection : START -->
-        <div id="dark_player" class="videogular-container mdl-cell mdl-cell--12-col mdl-color--black">
-            <div class="videogular-container">
-                <videogular vg-player-ready="controller.onPlayerReady($API)" vg-complete="controller.onCompleteVideo()" vg-theme="controller.config.theme.url">
-                    <vg-media vg-src="controller.config.sources"
-                            vg-tracks="controller.config.tracks">
-                    </vg-media>
-
-                    <vg-controls>
-                        <vg-play-pause-button></vg-play-pause-button>
-                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
-                        <vg-scrub-bar>
-                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                        </vg-scrub-bar>
-                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
-                        <vg-volume>
-                            <vg-mute-button></vg-mute-button>
-                            <vg-volume-bar></vg-volume-bar>
-                        </vg-volume>
-                        <vg-fullscreen-button></vg-fullscreen-button>
-                    </vg-controls>
-
-                    <vg-overlay-play></vg-overlay-play>
-                    <vg-buffering></vg-buffering>
-                    <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
-                </videogular>
-            </div>
-        </div><!-- PlayerSection : END -->
-
-        <!-- PlaylistSection : START -->
-        <div id="season-section" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect
-                                        mdl-cell    mdl-cell--2-offset-desktop mdl-cell--8-col-desktop
-                                                    mdl-cell--0-offset-laptop mdl-cell--12-col-laptop
-                                        mdl-color--pink">
-            <!-- PlaylistHead : START -->
-            <div class="mdl-tabs__tab-bar">
-                <span ng-repeat="n in [] | range:totalSeasons">
-                    <a href="#season{{n}}" class="mdl-tabs__tab" ng-class="{'is-active': {{n}} == 0}">Season {{n+1}}</a>
-                </span>
-            </div>
-            <!-- PlaylistHead : END -->
-
-            <!-- PlaylistContent : START -->
-            <span ng-repeat="n in [] | range:totalSeasons">
-                <span ng-if="true">
-                    <div id="season{{n}}" class="playlist mdl-tabs__panel" ng-class="{'is-active': {{n}} == 0}">
-                        <ul><li ng-repeat="video in controller.videos | filter:{Season :(n+1)} | orderBy:'video.Episode'">
-                            <button class=" mdl-button mdl-js-button mdl-button--raised 
-                                            mdl-cell mdl-cell--12-col-desktop"
-                                    ng-click="controller.setVideo(getIndexVideo(video.Title))">
-                                    {{video.Title}}
-                            </button>
-                        </li></ul>
-                    </div>
-                </span>
-            </span>
-            <!-- PlaylistCotnent : End -->
-            
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Title -->
+        <span class="mdl-layout-title" ng-controller="infoCtrl">{{Title}}</span>
+        <!-- Add spacer, to align navigation to the middle -->
+        <div class="mdl-layout-spacer"></div>
         </div>
-        <!-- PlaylistSection : END -->
-        
-        <!-- YOUR CONTENT : END -->
+    </header>
+    <main class="mdl-layout__content">
+        <div class="page-content mdl-grid mdl-grid--no-spacing" ng-controller="playerCtrl as controller">
+            <!-- YOUR CONTENT : START -->
+
+            <!-- PlayerSection : START -->
+            <div id="dark_player" class="videogular-container mdl-cell mdl-cell--12-col mdl-color--black">
+                <div class="videogular-container">
+                    <videogular vg-player-ready="controller.onPlayerReady($API)" vg-complete="controller.onCompleteVideo()" vg-theme="controller.config.theme.url">
+                        <vg-media vg-src="controller.config.sources"
+                                vg-tracks="controller.config.tracks">
+                        </vg-media>
+
+                        <vg-controls>
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                            <vg-volume>
+                                <vg-mute-button></vg-mute-button>
+                                <vg-volume-bar></vg-volume-bar>
+                            </vg-volume>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
+                        <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+                    </videogular>
+                </div>
+            </div><!-- PlayerSection : END -->
+
+            <!-- PlaylistSection : START -->
+            <div id="season-section" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect
+                                            mdl-cell    mdl-cell--2-offset-desktop mdl-cell--8-col-desktop
+                                                        mdl-cell--0-offset-laptop mdl-cell--12-col-laptop
+                                            mdl-color--pink">
+                <!-- PlaylistHead : START -->
+                <div class="mdl-tabs__tab-bar">
+                    <span ng-repeat="n in [] | range:totalSeasons">
+                        <a href="#season{{n}}" class="mdl-tabs__tab" ng-class="{'is-active': {{n}} == 0}">Season {{n+1}}</a>
+                    </span>
+                </div>
+                <!-- PlaylistHead : END -->
+
+                <!-- PlaylistContent : START -->
+                <span ng-repeat="n in [] | range:totalSeasons">
+                    <span ng-if="true">
+                        <div id="season{{n}}" class="playlist mdl-tabs__panel" ng-class="{'is-active': {{n}} == 0}">
+                            <ul><li ng-repeat="video in controller.videos | filter:{Season :(n+1)} | orderBy:'video.Episode'">
+                                <button class="mdl-button mdl-js-button mdl-button--raised 
+                                                mdl-cell mdl-cell--12-col-desktop"
+                                        ng-click="controller.setVideo(getIndexVideo(video.Title))">
+                                        {{video.Title}}
+                                </button>
+                            </li></ul>
+                        </div>
+                    </span>
+                </span>
+                <!-- PlaylistCotnent : End -->
+                
+            </div>
+            <!-- PlaylistSection : END -->
+            
+            <!-- YOUR CONTENT : END -->
+        </div>
+    </main>
     </div>
-  </main>
-</div>
-    
+        
 <!-- Script -->
+<!-- AngularJS -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<!-- Material Design Lite -->
+<script src="bower_components/material-design-lite/material.min.js"></script>
 <!-- Videogular -->
-<script src="modules/videogular-v1.4.4/videogular.js"></script>
-<script src="modules/videogularControls-v1.4.4/vg-controls.js"></script>
-<script src="modules/videogularOverlayPlay-v1.4.4/vg-overlay-play.js"></script>
-<script src="modules/videogularPoster-v1.4.4/vg-poster.js"></script>
-<script src="modules/videogularBuffering-v1.4.4/vg-buffering.js"></script>
+<script src="bower_components/videogular/videogular.min.js"></script>
+<script src="bower_components/videogular-controls/vg-controls.min.js"></script>
+<script src="bower_components/videogular-overlay-play/vg-overlay-play.min.js"></script>
+<script src="bower_components/videogular-poster/vg-poster.min.js"></script>
+<script src="bower_components/videogular-buffering/vg-buffering.min.js"></script>
 <!-- Local JSON -->
 <script src="media/bdd.js"></script>
 <!-- MY ANGULAR SCRIPT -->
-<script src="modules/backupSeries/js/app.js"></script>
-<script src="modules/backupSeries/js/controller.js"></script>
-<script src="modules/backupSeries/js/filter.js"></script>
+<script src="html/js/app.js"></script>
+<script src="html/js/controller.js"></script>
+<script src="html/js/filter.js"></script>
 
 </body>
-
 </html>
