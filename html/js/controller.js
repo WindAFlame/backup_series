@@ -30,7 +30,7 @@ app.controller('playerCtrl', function($scope, $sce, $timeout){
 
     controller.config = {
         preload: "none",
-        autoHide: false,
+        autoHide: true,
         autoHideTime: 3000,
         autoPlay: false,
         sources: controller.videos[0].sources,
@@ -38,7 +38,7 @@ app.controller('playerCtrl', function($scope, $sce, $timeout){
             url: "bower_components/videogular-themes-default/videogular.min.css"
         },
         plugins: {
-            poster: "media/img/videogular.png"
+            poster: "media/img/videogular.png",
         }
     };
 
