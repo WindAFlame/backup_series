@@ -21,9 +21,12 @@ app.controller('playerCtrl', function($scope, $sce, $timeout){
 
         controller.currentVideo++;
 
-        if (controller.currentVideo >= controller.videos.length) controller.currentVideo = 0;
+        if (controller.currentVideo >= controller.videos.length) {
+            controller.currentVideo = 0;
+        } else {
+            controller.setVideo(controller.currentVideo);
+        }
 
-        controller.setVideo(controller.currentVideo);
     };
 
     controller.videos = setSourcesV2(jsonS1.Episodes);
