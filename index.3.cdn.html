@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Test Material Design Lite</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="app/styles/info.css">
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.css">
+</head>
+<body ng-app="myApp">
+    <span ng-controller="loadJsonCtrl"></span>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <div class="mdl-layout-title">{{title[0].name}}</div>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="#info">Serie</a>
+                <a class="mdl-navigation__link" href="#season">Episode</a>
+                <a class="mdl-navigation__link" href="#ost">O.S.T.</a>
+            </nav>
+            </div>
+        </header>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="page-content">
+                <!-- START CONTENT-->
+
+                <!-- START : Info Section -->
+                <div id="info" class="mdl-grid">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--10-col mdl-grid">
+                        <!-- Cell IMG -->
+                        <div id="serie_img" class="mdl-cell mdl-cell--2-col">
+                            <img src={{img}} alt="Cover" class="mdl-shadow--2dp" style="max-width: 100%; border-radius: 10px;"/>
+                        </div>
+                        <!-- Cell info -->
+                        <div class="mdl-cell mdl-cell--10-col mdl-grid">
+                            <div id="serie_describ" class="mdl-cell mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                                <div class="serie_describ_box mdl-cell mdl-cell--3-col mdl-grid" ng-repeat="info in infos | filter: {section:'info'}">
+                                    <div class="serie_describ_inbox_top mdl-cell--12-col">{{info.key}}</div>
+                                    <div class="serie_describ_inbox_bottom mdl-cell--12-col">{{info.value}}</div>
+                                </div>
+                            </div>
+                            <div id="serie_summary" class="mdl-cell mdl-cell--12-col">{{summary}}</div>
+                        </div>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+                <!-- END : Info Section -->
+
+                <!-- START : Season Section -->
+                <div id="season" class="mdl-grid">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--10-col">
+
+                        <!-- START : GRID EPISODE -->
+                            <div class="mdl-grid">
+                                <!-- START : EPISODE BOX -->
+                                <div class="serie_describ_box mdl-cell mdl-cell--12-col mdl-grid">
+                                    <!-- START : HEADER -->
+                                    <button class="mdl-button mdl-js-button mdl-cell mdl-cell--12-col" style="color: black;" disabled>
+                                        <div class="mdl-grid" style="padding: 0;">
+                                            <p class="mdl-cell mdl-cell--2-col">numero</p>
+                                            <p class="mdl-cell mdl-cell--8-col describ_ep">name</p>
+                                            <p class="mdl-cell mdl-cell--2-col">time</p>
+                                        </div>
+                                    </button><!-- END : HEADER -->
+                                    <!-- START : EPISODE INFO -->
+                                    <a type="button" href={{episode.link}} class="mdl-button mdl-js-button mdl-cell mdl-cell--12-col" ng-repeat="episode in seasons">
+                                        <div class="mdl-grid" style="padding: 0;">
+                                            <p class="mdl-cell mdl-cell--2-col">{{episode.season}}-{{episode.number}}</p>
+                                            <p class="mdl-cell mdl-cell--8-col">{{episode.name}}</p>
+                                            <p class="mdl-cell mdl-cell--2-col">{{episode.duration}}</p>
+                                        </div>
+                                    </a>
+                                </div><!-- END : EPISODE BOX -->
+                            </div><!-- END : GRID EPISODE -->
+                        
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+                <!-- END : Season Section -->
+
+            </div><!-- END CONTENT -->
+        </main>
+    </div>
+
+    <!-- Script -->
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-sanitize.min.js"></script>
+    <!-- Material Design Lite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    <!-- MyScript -->
+    <script src="app/scripts/app.3.js"></script>
+    <script src="app/scripts/script.3.js"></script>
+    <script src="media/config.3.js"></script>
+</body>
+
+</html>

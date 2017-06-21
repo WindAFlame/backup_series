@@ -1,0 +1,28 @@
+{
+  "name": "backup-series",
+  "version": "0.1.0",
+  "description": "backup series with angular/mdl",
+  "main": "no",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "material-design-icons": "^3.0.1",
+    "material-design-lite": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WindAFlame/backup_series.git"
+  },
+  "keywords": [
+    "mdl-withsserver\u001b[D\u001b[D\u001b[D\u001b[D\u001b["
+  ],
+  "author": "Endy WindAFlame",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WindAFlame/backup_series/issues"
+  },
+  "homepage": "https://github.com/WindAFlame/backup_series#readme"
+}
